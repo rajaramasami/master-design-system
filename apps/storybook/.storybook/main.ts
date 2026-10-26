@@ -11,7 +11,7 @@ const config: StorybookConfig = {
     '../stories/**/*.stories.@(ts|tsx)',
     '../../../packages/react/src/**/*.stories.@(ts|tsx)',
   ],
-  addons: ['@storybook/addon-docs', '@storybook/addon-a11y'],
+  addons: ['@storybook/addon-docs', '@storybook/addon-a11y', 'storybook-addon-pseudo-states'],
   docs: { defaultName: 'Docs' },
   async viteFinal(cfg) {
     cfg.plugins = [...(cfg.plugins ?? []), tailwindcss()];

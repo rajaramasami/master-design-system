@@ -17,9 +17,13 @@ interface BaseProps extends Omit<SVGProps<SVGSVGElement>, 'ref' | 'name'> {
   label?: string;
 }
 
-export type IconProps =
-  | (BaseProps & { name: FilledIconName; filled?: boolean })
-  | (BaseProps & { name: Exclude<IconName, FilledIconName>; filled?: false });
+export interface IconProps extends BaseProps {
+  name: IconName;
+  /** Phosphor Fill glyph for selected or active states. Only the 12 icons in `filledIcons` have one; others ignore it. */
+  filled?: boolean;
+}
+
+export type { FilledIconName };
 
 /**
  * One of the 51 Figma icons. Colour comes from `currentColor`, so it follows the

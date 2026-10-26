@@ -8,7 +8,7 @@ function Grid({ family, filled = false }: { family: IconFamily; filled?: boolean
     <div className="grid grid-cols-[repeat(auto-fill,minmax(112px,1fr))] gap-inline-sm">
       {list.map((n) => (
         <div key={n} className="flex flex-col items-center gap-stack-xs rounded-control border border-border-subtle bg-bg-surface p-inset-sm text-icon-primary">
-          <Icon name={n as never} family={family} filled={filled} size="lg" />
+          <Icon name={n} family={family} filled={filled} size="lg" />
           <TokenName name={n} />
         </div>
       ))}

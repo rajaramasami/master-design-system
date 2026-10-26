@@ -1,0 +1,19 @@
+/*
+ * Interaction states that match the Figma State property. Shared by the
+ * package build (styles.css) and Storybook, which compiles from source.
+ *
+ *   hovered:     Figma State=Hover   (pointer devices only, never when disabled or loading)
+ *   pressed:     Figma State=Pressed (never when disabled or loading)
+ *   unavailable: Figma State=Disabled (native disabled, or aria-disabled on links)
+ *   loading:     Figma State=Loading
+ */
+@custom-variant hovered {
+  @media (hover: hover) {
+    &:hover:not(:disabled, [aria-disabled='true'], [data-loading]) {
+      @slot;
+    }
+  }
+}
+@custom-variant pressed (&:active:not(:disabled, [aria-disabled='true'], [data-loading]));
+@custom-variant unavailable (&:is(:disabled, [aria-disabled='true']));
+@custom-variant loading (&[data-loading]);

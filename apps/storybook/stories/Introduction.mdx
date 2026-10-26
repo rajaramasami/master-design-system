@@ -6,7 +6,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 One design system for every product I build. This Storybook is the coded side of the
 [Figma library](https://www.figma.com/design/1Uekteu5rjD24j283aFKIg): the same 406 tokens,
-the same names and, from Phase 1, the same components with the same variants and states.
+the same names and the same components with the same variants and states.
 
 ## Try the toolbar
 
@@ -35,12 +35,12 @@ npm install @rajaramasami/mds-tokens @rajaramasami/mds-react
 ```tsx
 import '@rajaramasami/mds-tokens/css';
 import '@rajaramasami/mds-react/styles.css';
-import { ThemeProvider, Icon } from '@rajaramasami/mds-react';
+import { ThemeProvider, Button } from '@rajaramasami/mds-react';
 
 export function App() {
   return (
     <ThemeProvider theme="system" platform="web" density="compact">
-      <Icon name="home" label="Home" />
+      <Button leadingIcon="plus">Add patient</Button>
     </ThemeProvider>
   );
 }
@@ -51,8 +51,8 @@ export function App() {
 | Phase | Scope | Status |
 | --- | --- | --- |
 | 0 Foundations | Tokens, ThemeProvider, icons, Storybook, CI | Done |
-| 1 Actions | Button, IconButton | Next |
-| 2 Form controls | TextField, Textarea, FieldMessage, Checkbox, Radio, Switch | Planned |
+| 1 Actions | Button, IconButton | Done |
+| 2 Form controls | TextField, Textarea, FieldMessage, Checkbox, Radio, Switch | Next |
 | 3 Overlays | Popover, Tooltip, Menu, Select, Dialog, Drawer, BottomSheet, Scrim | Planned |
 | 4 Data display and feedback | Card, Badge, Tag, Avatar, ListRow, Alert, Toast, ProgressBar, Spinner, Skeleton, EmptyState | Planned |
 | 5 Navigation | Tabs, Breadcrumbs, Pagination, Stepper, Sidebar, TopBar, TabBar | Planned |

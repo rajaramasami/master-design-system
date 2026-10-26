@@ -7,7 +7,7 @@ One design system for every product I build: design tokens and React components 
 | --- | --- |
 | [`@rajaramasami/mds-tokens`](packages/tokens) | The 406 Figma variables as CSS variables, a Tailwind v4 theme, Swift and Jetpack Compose files |
 | [`@rajaramasami/mds-react`](packages/react) | React components on Radix UI, styled only with the semantic tokens |
-| [`apps/storybook`](apps/storybook) | Docs site with a toolbar for every Figma mode |
+| [`apps/storybook`](apps/storybook) | Docs site with a toolbar for every Figma mode: [rajaramasami.github.io/master-design-system](https://rajaramasami.github.io/master-design-system/) |
 
 ## How it works
 
@@ -69,8 +69,8 @@ Each changelog entry names the Figma library version it matches.
 | Phase | Scope | Status |
 | --- | --- | --- |
 | 0 Foundations | Tokens, ThemeProvider, icons, Storybook, CI | Done |
-| 1 Actions | Button, IconButton | Next |
-| 2 Form controls | TextField, Textarea, FieldMessage, Checkbox, Radio, Switch | Planned |
+| 1 Actions | Button, IconButton | Done |
+| 2 Form controls | TextField, Textarea, FieldMessage, Checkbox, Radio, Switch | Next |
 | 3 Overlays | Popover, Tooltip, Menu, Select, Dialog, Drawer, BottomSheet, Scrim | Planned |
 | 4 Data display and feedback | Card, Badge, Tag, Avatar, ListRow, Alert, Toast, ProgressBar, Spinner, Skeleton, EmptyState | Planned |
 | 5 Navigation | Tabs, Breadcrumbs, Pagination, Stepper, Sidebar, TopBar, TabBar | Planned |

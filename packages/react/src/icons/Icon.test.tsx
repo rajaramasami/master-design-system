@@ -11,7 +11,7 @@ describe('Icon', () => {
 
   it('renders every icon in both families', () => {
     for (const family of ['lucide', 'phosphor'] as const) {
-      const { container, unmount } = render(<>{iconNames.map((n) => <Icon key={n} name={n as never} family={family} />)}</>);
+      const { container, unmount } = render(<>{iconNames.map((n) => <Icon key={n} name={n} family={family} />)}</>);
       expect(container.querySelectorAll('svg')).toHaveLength(51);
       unmount();
     }

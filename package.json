@@ -1,0 +1,30 @@
+{
+  "name": "master-design-system",
+  "private": true,
+  "description": "Raja R's Master Design System: design tokens and React components that mirror the Figma library.",
+  "license": "MIT",
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "tokens:import": "pnpm --filter @rajaramasami/mds-tokens import",
+    "build": "pnpm --filter @rajaramasami/mds-tokens build && pnpm --filter @rajaramasami/mds-react build",
+    "storybook": "pnpm --filter storybook dev",
+    "build-storybook": "pnpm build && pnpm --filter storybook build",
+    "test": "pnpm -r --if-present test",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "changeset": "changeset",
+    "release": "pnpm build && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.0",
+    "typescript": "^5.9.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "@tailwindcss/oxide"
+    ]
+  }
+}

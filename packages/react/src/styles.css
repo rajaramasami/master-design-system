@@ -1,0 +1,16 @@
+/*
+ * Master Design System component styles.
+ *
+ * Built with Tailwind v4 into dist/styles.css, so apps don't need Tailwind to
+ * use the components. Tailwind's preflight reset is left out on purpose, so the
+ * file never restyles the host page. Load the token variables first:
+ *
+ *   import '@rajaramasami/mds-tokens/css';
+ *   import '@rajaramasami/mds-react/styles.css';
+ */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+@import '@rajaramasami/mds-tokens/tailwind';
+@import './base.css';
+@source './';

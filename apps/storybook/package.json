@@ -1,0 +1,25 @@
+{
+  "name": "storybook",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build -o storybook-static"
+  },
+  "devDependencies": {
+    "@rajaramasami/mds-react": "workspace:*",
+    "@rajaramasami/mds-tokens": "workspace:*",
+    "@storybook/addon-a11y": "^10.6.4",
+    "@storybook/addon-docs": "^10.6.4",
+    "@storybook/react-vite": "^10.6.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "storybook": "^10.6.4",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
+  }
+}

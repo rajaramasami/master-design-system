@@ -1,0 +1,58 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# Master Design System
+
+One design system for every product I build. This Storybook is the coded side of the
+[Figma library](https://www.figma.com/design/1Uekteu5rjD24j283aFKIg): the same 406 tokens,
+the same names and, from Phase 1, the same components with the same variants and states.
+
+## Try the toolbar
+
+Every switch above the canvas is one Figma variable collection:
+
+| Toolbar | Figma collection | Modes |
+| --- | --- | --- |
+| Theme | Color | Light, Dark |
+| Brand | Brand | Default (violet), Ocean (a sample product brand) |
+| Platform | Platform | Web, iOS, Android |
+| Density | Density | Compact, Comfortable |
+
+## How it fits together
+
+1. **Figma variables** are exported to W3C design token JSON (`packages/tokens/figma-export`).
+2. **Style Dictionary** builds them into CSS variables, a Tailwind v4 theme, Swift and Jetpack Compose files.
+3. **Components** (`@rajaramasami/mds-react`) use Radix UI for behaviour and only the semantic tokens for styling.
+4. **Checks** run on every change: every token is present, every reference resolves, and 114 colour pairs pass WCAG 2.2 AA in light and dark.
+
+## Use it in an app
+
+```bash
+npm install @rajaramasami/mds-tokens @rajaramasami/mds-react
+```
+
+```tsx
+import '@rajaramasami/mds-tokens/css';
+import '@rajaramasami/mds-react/styles.css';
+import { ThemeProvider, Icon } from '@rajaramasami/mds-react';
+
+export function App() {
+  return (
+    <ThemeProvider theme="system" platform="web" density="compact">
+      <Icon name="home" label="Home" />
+    </ThemeProvider>
+  );
+}
+```
+
+## Status
+
+| Phase | Scope | Status |
+| --- | --- | --- |
+| 0 Foundations | Tokens, ThemeProvider, icons, Storybook, CI | Done |
+| 1 Actions | Button, IconButton | Next |
+| 2 Form controls | TextField, Textarea, FieldMessage, Checkbox, Radio, Switch | Planned |
+| 3 Overlays | Popover, Tooltip, Menu, Select, Dialog, Drawer, BottomSheet, Scrim | Planned |
+| 4 Data display and feedback | Card, Badge, Tag, Avatar, ListRow, Alert, Toast, ProgressBar, Spinner, Skeleton, EmptyState | Planned |
+| 5 Navigation | Tabs, Breadcrumbs, Pagination, Stepper, Sidebar, TopBar, TabBar | Planned |

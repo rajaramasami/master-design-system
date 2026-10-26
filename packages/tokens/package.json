@@ -1,0 +1,28 @@
+{
+  "name": "@rajaramasami/mds-tokens",
+  "version": "0.1.0",
+  "description": "Design tokens for the Master Design System, generated from the Figma variables: CSS variables, Tailwind v4 theme, Swift and Jetpack Compose.",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    "./css": "./dist/css/tokens.css",
+    "./tailwind": "./dist/tailwind/theme.css",
+    "./json/*": "./dist/json/*.json",
+    "./src/*": "./src/*"
+  },
+  "scripts": {
+    "import": "node scripts/import-figma.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/build.mjs && node scripts/verify.mjs"
+  },
+  "devDependencies": {
+    "style-dictionary": "^5.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

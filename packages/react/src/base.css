@@ -1,0 +1,48 @@
+/* Base styles for a ThemeProvider region. Imported by styles.css; Storybook imports it directly. */
+@layer base {
+  .mds-root {
+    background-color: var(--mds-color-bg-canvas);
+    color: var(--mds-color-text-primary);
+    font-family: var(--mds-text-body-md-font-family);
+    font-size: var(--mds-text-body-md-font-size);
+    line-height: var(--mds-text-body-md-line-height);
+    font-weight: var(--mds-text-body-md-font-weight);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color-scheme: light;
+  }
+
+  .mds-root[data-theme='dark'] {
+    color-scheme: dark;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .mds-root:not([data-theme='light']) {
+      color-scheme: dark;
+    }
+  }
+
+  .mds-root *,
+  .mds-root *::before,
+  .mds-root *::after {
+    box-sizing: border-box;
+  }
+
+  /* One focus style everywhere: the offset ring from the Figma effect style focus/ring-brand. */
+  .mds-root :focus-visible {
+    outline: none;
+    box-shadow: var(--mds-focus-ring-brand);
+  }
+
+  /* Motion follows the system setting; the Figma motion tokens drop to zero. */
+  @media (prefers-reduced-motion: reduce) {
+    .mds-root *,
+    .mds-root *::before,
+    .mds-root *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

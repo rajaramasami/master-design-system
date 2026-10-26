@@ -1,0 +1,38 @@
+@import 'tailwindcss';
+@import '@rajaramasami/mds-tokens/tailwind';
+@import '../../../packages/react/src/base.css';
+@source '../../../packages/react/src';
+@source '../stories';
+/* Classes the foundations pages build from names at runtime. */
+@source inline('text-{display,heading-xl,heading-lg,heading-md,heading-sm,body-lg,body-md,body-md-strong,body-sm,body-sm-strong,label-md,label-sm,caption,overline,code}');
+@source inline('shadow-elevation-{xs,sm,md,lg,xl}');
+
+/*
+ * Sample brand for the toolbar. A product brand only overrides the brand ramp;
+ * every semantic token (buttons, links, focus rings) follows automatically.
+ * Ocean uses a blue ramp whose 600 step keeps white text at AA (5.17:1).
+ */
+[data-brand='ocean'] {
+  --mds-brand-primary-50: #eff6ff;
+  --mds-brand-primary-100: #dbeafe;
+  --mds-brand-primary-200: #bfdbfe;
+  --mds-brand-primary-300: #93c5fd;
+  --mds-brand-primary-400: #60a5fa;
+  --mds-brand-primary-500: #3b82f6;
+  --mds-brand-primary-600: #2563eb;
+  --mds-brand-primary-700: #1d4ed8;
+  --mds-brand-primary-800: #1e40af;
+  --mds-brand-primary-900: #1e3a8a;
+  --mds-brand-primary-950: #172554;
+  --mds-brand-accent-50: #f0fdfa;
+  --mds-brand-accent-100: #ccfbf1;
+  --mds-brand-accent-200: #99f6e4;
+  --mds-brand-accent-300: #5eead4;
+  --mds-brand-accent-400: #2dd4bf;
+  --mds-brand-accent-500: #14b8a6;
+  --mds-brand-accent-600: #0d9488;
+  --mds-brand-accent-700: #0f766e;
+  --mds-brand-accent-800: #115e59;
+  --mds-brand-accent-900: #134e4a;
+  --mds-brand-accent-950: #042f2e;
+}

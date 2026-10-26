@@ -1,0 +1,162 @@
+{
+  "brand": {
+    "primary": {
+      "50": {
+        "$type": "color",
+        "$value": "{color.violet.50}"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "{color.violet.100}"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "{color.violet.200}"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "{color.violet.300}"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "{color.violet.400}"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "{color.violet.500}"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "{color.violet.600}"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "{color.violet.700}"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "{color.violet.800}"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "{color.violet.900}"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "{color.violet.950}"
+      }
+    },
+    "accent": {
+      "50": {
+        "$type": "color",
+        "$value": "{color.orange.50}"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "{color.orange.100}"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "{color.orange.200}"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "{color.orange.300}"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "{color.orange.400}"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "{color.orange.500}"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "{color.orange.600}"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "{color.orange.700}"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "{color.orange.800}"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "{color.orange.900}"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "{color.orange.950}"
+      }
+    },
+    "neutral": {
+      "50": {
+        "$type": "color",
+        "$value": "{color.gray.50}"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "{color.gray.100}"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "{color.gray.200}"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "{color.gray.300}"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "{color.gray.400}"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "{color.gray.500}"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "{color.gray.600}"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "{color.gray.700}"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "{color.gray.800}"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "{color.gray.900}"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "{color.gray.950}"
+      }
+    },
+    "font": {
+      "sans": {
+        "$type": "fontFamily",
+        "$value": "Inter"
+      },
+      "display": {
+        "$type": "fontFamily",
+        "$value": "Inter"
+      },
+      "mono": {
+        "$type": "fontFamily",
+        "$value": "JetBrains Mono"
+      }
+    },
+    "radius": {
+      "base": {
+        "$type": "dimension",
+        "$value": "{radius.md}"
+      }
+    }
+  }
+}

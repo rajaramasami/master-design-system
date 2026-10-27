@@ -68,3 +68,19 @@ export { ProgressBar, Spinner, Skeleton, SkeletonListRow } from './components/Pr
 export type { ProgressBarProps, SpinnerProps, SkeletonProps } from './components/Progress/Progress';
 export { EmptyState } from './components/EmptyState/EmptyState';
 export type { EmptyStateProps, EmptyStateType } from './components/EmptyState/EmptyState';
+
+// Phase 5: Navigation
+export { Tabs, TabsList, TabsTrigger, TabsContent } from './components/Tabs/Tabs';
+export type { TabsProps, TabsListProps, TabsTriggerProps } from './components/Tabs/Tabs';
+export { Breadcrumbs } from './components/Breadcrumbs/Breadcrumbs';
+export type { BreadcrumbsProps, BreadcrumbItem } from './components/Breadcrumbs/Breadcrumbs';
+export { Pagination, pageRange } from './components/Pagination/Pagination';
+export type { PaginationProps } from './components/Pagination/Pagination';
+export { Stepper } from './components/Stepper/Stepper';
+export type { StepperProps, StepItem, StepStatus } from './components/Stepper/Stepper';
+export { Sidebar, SidebarItem } from './components/Sidebar/Sidebar';
+export type { SidebarProps, SidebarItemProps } from './components/Sidebar/Sidebar';
+export { TopBar } from './components/TopBar/TopBar';
+export type { TopBarProps } from './components/TopBar/TopBar';
+export { TabBar, TabBarItem } from './components/TabBar/TabBar';
+export type { TabBarProps, TabBarItemProps } from './components/TabBar/TabBar';

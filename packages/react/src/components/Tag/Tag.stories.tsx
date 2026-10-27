@@ -17,6 +17,7 @@ Mirrors the Figma set **Tag** (12 Data display): Size sm, md × State Default, H
 - **Static** (no handlers): a value label.
 - **Toggle** (\`selected\` + \`onSelectedChange\`): a filter chip; a check icon appears when selected.
 - **Removable** (\`onRemove\`): a chosen value with its own remove button.
+- **Toggle and removable** (\`selected\` + \`onRemove\`): the pill and a separate remove button side by side, as in the Figma set **Tag / Selectable + Removable** (a button can't sit inside another button).
 
 **Accessibility**: a toggle is a \`button\` with \`aria-pressed\`. The remove button is separate and named "Remove {label}". Both reach the 24 px minimum target (44 on iOS and Android via \`size/target/min\`) without changing the visible size.
 `,

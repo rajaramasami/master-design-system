@@ -85,6 +85,7 @@ Each changelog entry names the Figma library version it matches.
 | 2 Form controls | TextField, Textarea, FieldMessage, Checkbox, Radio, Switch | Done |
 | 3 Overlays | Popover, Tooltip, Menu, Select, Dialog, Drawer, BottomSheet, Scrim | Done |
 | 4 Data display and feedback | Card, Badge, Tag, Avatar, ListRow, Alert, Toast, ProgressBar, Spinner, Skeleton, EmptyState | Done |
-| 5 Navigation | Tabs, Breadcrumbs, Pagination, Stepper, Sidebar, TopBar, TabBar | Next |
+| 5 Navigation | Tabs, Breadcrumbs, Pagination, Stepper, Sidebar, TopBar, TabBar | Done |
+| 6 Figma links | Storybook links in every Figma component description | Next |
 
 Designed and built by Raja R, Lead Product Designer.

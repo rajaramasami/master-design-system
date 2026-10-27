@@ -44,7 +44,7 @@ const preview: Preview = {
     layout: 'fullscreen',
     controls: { expanded: true },
     a11y: { test: 'error' },
-    options: { storySort: { order: ['Introduction', 'Foundations', ['Colour', 'Typography', 'Spacing and size', 'Radius and elevation', 'Icons'], 'Components', ['Actions', 'Inputs', 'Overlays', 'Data display', 'Feedback'], 'Patterns'] } },
+    options: { storySort: { order: ['Introduction', 'Foundations', ['Colour', 'Typography', 'Spacing and size', 'Radius and elevation', 'Icons'], 'Components', ['Actions', 'Inputs', 'Overlays', 'Data display', 'Feedback', 'Navigation'], 'Patterns'] } },
   },
 };
 

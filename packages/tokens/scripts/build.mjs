@@ -243,31 +243,56 @@ ${mode.ios.map((t) => `    public static let ${nativeName(t)}: CGFloat = ${px(t.
 const densityFields = mode.compact.map((t) => nativeName(t));
 const densityInit = (tokens) => tokens.map((t) => `${nativeName(t)}: ${px(t.value)}`).join(', ');
 write('ios/MDSDensity.swift', `// ${BANNER}
-import CoreGraphics
+import SwiftUI
 
 /// Spacing and row heights from the Density collection.
-public struct MDSDensity {
+/// Read the current one with \`@Environment(\\.mdsDensity) var mdsDensity\`, then \`mdsDensity.spacingInsetMd\`.
+public struct MDSDensity: Sendable {
 ${densityFields.map((f) => `    public let ${f}: CGFloat`).join('\n')}
 
     public static let compact = MDSDensity(${densityInit(mode.compact)})
     public static let comfortable = MDSDensity(${densityInit(mode.comfortable)})
 }
+
+private struct MDSDensityKey: EnvironmentKey {
+    static let defaultValue = MDSDensity.compact
+}
+
+public extension EnvironmentValues {
+    /// The density for this part of the view tree. Set it with \`.environment(\\.mdsDensity, .comfortable)\`.
+    var mdsDensity: MDSDensity {
+        get { self[MDSDensityKey.self] }
+        set { self[MDSDensityKey.self] = newValue }
+    }
+}
 `);
 
 // --- Kotlin (Jetpack Compose) ------------------------------------------------------
-const kColors = (tokens) => tokens.map((t) => `    val ${nativeName(t)} = Color(${kotlinHex(t.value)})`).join('\n');
+const kColorFields = (tokens) => tokens.map((t) => `        ${nativeName(t)} = Color(${kotlinHex(t.value)})`).join(',\n');
 write('android/MDSColor.kt', `// ${BANNER}
 package design.mds.tokens
 
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
-object MDSLightColors {
-${kColors(mode.light)}
+/**
+ * The semantic colours from the Color collection.
+ * Read the current set with \`LocalMDSColors.current.bgCanvas\`; provide \`MDSColors.Dark\` in dark theme.
+ */
+data class MDSColors(
+${mode.light.map((t) => `    val ${nativeName(t)}: Color`).join(',\n')}
+) {
+    companion object {
+        val Light = MDSColors(
+${kColorFields(mode.light)}
+        )
+        val Dark = MDSColors(
+${kColorFields(mode.dark)}
+        )
+    }
 }
 
-object MDSDarkColors {
-${kColors(mode.dark)}
-}
+val LocalMDSColors = staticCompositionLocalOf { MDSColors.Light }
 `);
 const isFont = (t) => /font-size|line-height/.test(t.name);
 write('android/MDSPlatform.kt', `// ${BANNER}
@@ -285,10 +310,11 @@ const kDensity = (tokens) => tokens.map((t) => `        ${nativeName(t)} = ${px(
 write('android/MDSDensity.kt', `// ${BANNER}
 package design.mds.tokens
 
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
-/** Spacing and row heights from the Density collection. */
+/** Spacing and row heights from the Density collection. Read the current one with \`LocalMDSDensity.current\`. */
 data class MDSDensity(
 ${densityFields.map((f) => `    val ${f}: Dp`).join(',\n')}
 ) {
@@ -301,7 +327,25 @@ ${kDensity(mode.comfortable)}
         )
     }
 }
+
+val LocalMDSDensity = staticCompositionLocalOf { MDSDensity.Compact }
 `);
+
+// --- Code syntax map: what Figma Dev Mode should show for each variable -------------
+// Used to set and check the code syntax on the Figma variables (see scripts/verify.mjs).
+const syntax = {};
+const add = (tokens, native) => {
+  for (const t of tokens) {
+    const figmaName = t.path.join('/');
+    syntax[figmaName] = { WEB: `var(--${PREFIX}-${t.name})`, ...(native ? native(nativeName(t)) : {}) };
+  }
+};
+add(primitives);
+add(brand);
+add(mode.light, (n) => ({ iOS: `MDSColor.${n}`, ANDROID: `LocalMDSColors.current.${n}` }));
+add(mode.web, (n) => ({ iOS: `MDSPlatform.${n}`, ANDROID: `MDSPlatform.${n}` }));
+add(mode.compact, (n) => ({ iOS: `mdsDensity.${n}`, ANDROID: `LocalMDSDensity.current.${n}` }));
+write('json/code-syntax.json', JSON.stringify(syntax, null, 2));
 
 const total = primitives.length + brand.length + mode.light.length + mode.web.length + mode.compact.length;
 console.log(`Built ${total} tokens (${primitives.length} primitives, ${brand.length} brand, ${mode.light.length} colour, ${mode.web.length} platform, ${mode.compact.length} density) + ${styles.length} styles.`);

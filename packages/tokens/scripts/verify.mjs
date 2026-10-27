@@ -2,6 +2,7 @@
 //  1. every token from the Figma export made it into the CSS
 //  2. every var(--mds-*) reference points at a variable that exists
 //  3. key colour pairs pass WCAG 2.2 AA in light and dark (4.5:1 text, 3:1 non-text)
+//  4. the code syntax set on the Figma variables names real CSS, Swift and Compose symbols
 // Exits with code 1 on any failure, so CI blocks a bad token change or brand ramp.
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -58,8 +59,23 @@ for (const m of ['light', 'dark']) {
   }
 }
 
+// 4. Code syntax: every name Figma Dev Mode shows must exist in the generated code.
+const syntax = JSON.parse(read('dist/json/code-syntax.json'));
+const swift = ['MDSColor', 'MDSPlatform', 'MDSDensity'].map((f) => read(`dist/ios/${f}.swift`)).join('\n');
+const kotlin = ['MDSColor', 'MDSPlatform', 'MDSDensity'].map((f) => read(`dist/android/${f}.kt`)).join('\n');
+let syntaxChecked = 0;
+for (const [name, s] of Object.entries(syntax)) {
+  const web = s.WEB.match(/^var\((--mds-[a-z0-9-]+)\)$/);
+  if (!web || !defined.has(web[1])) errors.push(`Code syntax for ${name}: ${s.WEB} is not a defined CSS variable`);
+  const prop = (x) => x && x.split('.').pop();
+  if (s.iOS && !new RegExp(`\\b(let|var) ${prop(s.iOS)}\\b`).test(swift)) errors.push(`Code syntax for ${name}: ${s.iOS} not in the Swift output`);
+  if (s.ANDROID && !new RegExp(`\\bval ${prop(s.ANDROID)}\\b`).test(kotlin)) errors.push(`Code syntax for ${name}: ${s.ANDROID} not in the Compose output`);
+  syntaxChecked++;
+}
+if (syntaxChecked !== expected.length) errors.push(`Code syntax covers ${syntaxChecked} of ${expected.length} tokens`);
+
 if (errors.length) {
   console.error(`Token check failed (${errors.length}):\n- ${errors.join('\n- ')}`);
   process.exit(1);
 }
-console.log(`Token check passed: ${expected.length} tokens present, all references resolve, ${results.length} colour pairs pass AA (lowest ${Math.min(...results).toFixed(2)}:1).`);
+console.log(`Token check passed: ${expected.length} tokens present, all references resolve, ${results.length} colour pairs pass AA (lowest ${Math.min(...results).toFixed(2)}:1), code syntax for all ${syntaxChecked} matches the generated CSS, Swift and Compose.`);

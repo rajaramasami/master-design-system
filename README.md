@@ -46,6 +46,18 @@ pnpm test         # token checks and component tests
 2. `pnpm tokens:import` rewrites the DTCG files in `packages/tokens/src/`.
 3. `pnpm --filter @rajaramasami/mds-tokens test` rebuilds every output and checks that all 407 tokens are present, every reference resolves and 114 colour pairs pass WCAG 2.2 AA in light and dark. A failing check blocks the pull request.
 
+## Native apps
+
+The tokens package also generates SwiftUI and Jetpack Compose files. The names match the code syntax Figma Dev Mode shows on each variable.
+
+| Collection | SwiftUI | Compose |
+| --- | --- | --- |
+| Color | `MDSColor.bgCanvas` (follows light and dark) | `LocalMDSColors.current.bgCanvas` (provide `MDSColors.Dark` in dark theme) |
+| Platform | `MDSPlatform.controlMd` | `MDSPlatform.controlMd` |
+| Density | `@Environment(\.mdsDensity)`, then `mdsDensity.spacingInsetMd` | `LocalMDSDensity.current.spacingInsetMd` |
+
+Primitives and brand ramps are web-only: native code uses the semantic tokens.
+
 ## Adding a product brand
 
 Override the brand ramp only. Every button, link and focus ring follows.

@@ -8,7 +8,7 @@
     "node": ">=20"
   },
   "scripts": {
-    "tokens:import": "pnpm --filter @rajaramasami/mds-tokens import",
+    "tokens:import": "pnpm --filter @rajaramasami/mds-tokens run import-figma",
     "build": "pnpm --filter @rajaramasami/mds-tokens build && pnpm --filter @rajaramasami/mds-react build",
     "storybook": "pnpm --filter storybook dev",
     "build-storybook": "pnpm build && pnpm --filter storybook build",

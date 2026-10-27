@@ -2,7 +2,7 @@
 // W3C DTCG token files under src/. One file per Figma collection and mode, so
 // each mode can be built into its own CSS selector, Swift file or Compose object.
 //
-// Run: pnpm --filter @rajaramasami/mds-tokens import
+// Run: pnpm tokens:import (from the repo root)
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';

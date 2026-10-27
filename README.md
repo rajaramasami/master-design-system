@@ -5,7 +5,7 @@ One design system for every product I build: design tokens and React components 
 
 | Package | What it is |
 | --- | --- |
-| [`@rajaramasami/mds-tokens`](packages/tokens) | The 406 Figma variables as CSS variables, a Tailwind v4 theme, Swift and Jetpack Compose files |
+| [`@rajaramasami/mds-tokens`](packages/tokens) | The 407 Figma variables as CSS variables, a Tailwind v4 theme, Swift and Jetpack Compose files |
 | [`@rajaramasami/mds-react`](packages/react) | React components on Radix UI, styled only with the semantic tokens |
 | [`apps/storybook`](apps/storybook) | Docs site with a toolbar for every Figma mode: [rajaramasami.github.io/master-design-system](https://rajaramasami.github.io/master-design-system/) |
 
@@ -13,7 +13,7 @@ One design system for every product I build: design tokens and React components 
 
 ```
 Figma variables ──► token JSON (W3C DTCG) ──► Style Dictionary ──┬─► CSS variables ──┐
-  (406, 5 collections)                                           ├─► Tailwind v4 ────┴─► React components
+  (407, 5 collections)                                           ├─► Tailwind v4 ────┴─► React components
                                                                  ├─► Swift (iOS)
                                                                  └─► Compose (Android)
 ```
@@ -44,7 +44,7 @@ pnpm test         # token checks and component tests
 
 1. Re-export the variables into `packages/tokens/figma-export/variables.json`.
 2. `pnpm tokens:import` rewrites the DTCG files in `packages/tokens/src/`.
-3. `pnpm --filter @rajaramasami/mds-tokens test` rebuilds every output and checks that all 406 tokens are present, every reference resolves and 114 colour pairs pass WCAG 2.2 AA in light and dark. A failing check blocks the pull request.
+3. `pnpm --filter @rajaramasami/mds-tokens test` rebuilds every output and checks that all 407 tokens are present, every reference resolves and 114 colour pairs pass WCAG 2.2 AA in light and dark. A failing check blocks the pull request.
 
 ## Adding a product brand
 

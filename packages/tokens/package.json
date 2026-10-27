@@ -15,7 +15,7 @@
     "./src/*": "./src/*"
   },
   "scripts": {
-    "import": "node scripts/import-figma.mjs",
+    "import-figma": "node scripts/import-figma.mjs",
     "build": "node scripts/build.mjs",
     "test": "node scripts/build.mjs && node scripts/verify.mjs"
   },

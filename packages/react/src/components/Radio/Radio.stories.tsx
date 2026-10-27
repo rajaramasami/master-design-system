@@ -28,7 +28,6 @@ Mirrors the Figma set **Radio** (11 Inputs): Checked Unchecked, Checked × State
 
 **Accessibility**: \`RadioGroup\` has a visible label that names the group. Tab moves into the group, arrow keys move the selection, Tab leaves. A group \`error\` marks every option and describes the group.
 
-**Note**: in Figma the dot is the space left by the circle's padding, which is bound to \`spacing/inset/xs\`, so it shrinks from 12 px to 4 px in Comfortable density. In code the dot is a fixed 60% of the circle in every density.
 `,
       },
     },

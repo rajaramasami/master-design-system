@@ -11,5 +11,3 @@ Phase 2: form controls (matches Figma library v1.0.0).
 - `RadioGroup` and `Radio`: arrow-key selection, vertical or horizontal; group error and description.
 - `Switch`: platform-sized track and thumb (36×20 web, 51×31 iOS, 52×32 Android).
 - Labels, descriptions and errors are wired with `aria-describedby` and `aria-invalid` automatically.
-
-Known difference from Figma: the Radio dot is a fixed 60% of the circle. In Figma it is the circle's padding, bound to `spacing/inset/xs`, so it shrinks to 4 px in Comfortable density.

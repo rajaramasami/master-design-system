@@ -340,5 +340,11 @@
       "$type": "dimension",
       "$value": "{size.32}"
     }
+  },
+  "radio": {
+    "dot-size": {
+      "$type": "dimension",
+      "$value": "{size.8}"
+    }
   }
 }

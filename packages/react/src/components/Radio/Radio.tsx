@@ -8,9 +8,7 @@ import { ChoiceGroupContext, ChoiceGroupFrame, ChoiceRow, useChoiceGroup, useCho
  * State = Default, Hover, Pressed, Focus, Error, Disabled. Checked has a 2px
  * border/brand ring and an action/primary dot.
  *
- * Note: in Figma the dot is the space left by the circle's padding, which is bound
- * to spacing/inset/xs, so the dot shrinks from 12px to 4px in Comfortable density.
- * Here the dot is a fixed 60% of the circle (12px on web) in every density.
+ * The dot is radio/dot-size (8px) on every platform and density.
  */
 const radioCircleClass = [
   'inline-flex size-icon-md shrink-0 cursor-[inherit] items-center justify-center rounded-pill outline-none',
@@ -54,7 +52,7 @@ export const Radio = forwardRef<HTMLButtonElement, RadioProps>(function Radio(
       data-invalid={group.invalid ? '' : undefined}
       className={cn(radioCircleClass, className)}
     >
-      <RadioPrimitive.Indicator className="block size-[60%] rounded-pill bg-(--dot)" />
+      <RadioPrimitive.Indicator className="block size-radio-dot-size rounded-pill bg-(--dot)" />
     </RadioPrimitive.Item>
   );
 

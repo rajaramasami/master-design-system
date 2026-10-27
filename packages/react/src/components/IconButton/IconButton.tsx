@@ -89,7 +89,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(functio
       className={cn(iconButtonVariants({ variant, size }), className)}
       onClick={handleClick}
     >
-      <Icon name={loading ? 'spinner' : icon} size={iconSize} className={loading ? 'animate-spin' : undefined} />
+      <Icon name={loading ? 'spinner' : icon} size={iconSize} className={loading ? 'mds-spinner' : undefined} />
     </button>
   );
 });

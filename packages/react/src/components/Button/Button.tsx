@@ -119,7 +119,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       onClick={handleClick}
     >
       {loading ? (
-        <Icon name="spinner" size={iconSize} className={cn(iconClass, 'animate-spin')} />
+        <Icon name="spinner" size={iconSize} className={cn(iconClass, 'mds-spinner')} />
       ) : (
         leadingIcon && <Icon name={leadingIcon} size={iconSize} className={iconClass} />
       )}

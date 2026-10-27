@@ -48,3 +48,23 @@ export {
 } from './components/Dialog/Dialog';
 export type { DialogContentProps, DrawerContentProps, BottomSheetContentProps } from './components/Dialog/Dialog';
 export { usePortalContainer } from './provider/ThemeProvider';
+
+// Phase 4: Data display and feedback
+export { Card } from './components/Card/Card';
+export type { CardProps } from './components/Card/Card';
+export { Badge } from './components/Badge/Badge';
+export type { BadgeProps, BadgeTone } from './components/Badge/Badge';
+export { Tag } from './components/Tag/Tag';
+export type { TagProps } from './components/Tag/Tag';
+export { Avatar, initialsOf } from './components/Avatar/Avatar';
+export type { AvatarProps, AvatarSize } from './components/Avatar/Avatar';
+export { List, ListRow } from './components/ListRow/ListRow';
+export type { ListProps, ListRowProps } from './components/ListRow/ListRow';
+export { Alert } from './components/Alert/Alert';
+export type { AlertProps, AlertTone } from './components/Alert/Alert';
+export { ToastProvider, useToast } from './components/Toast/Toast';
+export type { ToastOptions, ToastTone } from './components/Toast/Toast';
+export { ProgressBar, Spinner, Skeleton, SkeletonListRow } from './components/Progress/Progress';
+export type { ProgressBarProps, SpinnerProps, SkeletonProps } from './components/Progress/Progress';
+export { EmptyState } from './components/EmptyState/EmptyState';
+export type { EmptyStateProps, EmptyStateType } from './components/EmptyState/EmptyState';

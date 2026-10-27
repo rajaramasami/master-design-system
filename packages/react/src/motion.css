@@ -1,0 +1,71 @@
+/*
+ * Overlay motion, using the Figma motion tokens. Radix sets data-state="open" |
+ * "closed" and waits for the closing animation before unmounting. base.css turns
+ * every animation off under prefers-reduced-motion.
+ *
+ *   mds-pop      Menu, Popover, Select, Tooltip   fast (120ms), scale from the trigger
+ *   mds-fade     Scrim                            normal (200ms)
+ *   mds-dialog   Dialog                           normal (200ms), fade + small scale
+ *   mds-drawer   Drawer                           slow in (320ms), normal out
+ *   mds-sheet    Bottom Sheet                     slow in (320ms), normal out
+ */
+@keyframes mds-fade-in { from { opacity: 0; } }
+@keyframes mds-fade-out { to { opacity: 0; } }
+@keyframes mds-pop-in { from { opacity: 0; transform: scale(0.96); } }
+@keyframes mds-pop-out { to { opacity: 0; transform: scale(0.96); } }
+@keyframes mds-dialog-in { from { opacity: 0; scale: 0.98; } }
+@keyframes mds-dialog-out { to { opacity: 0; scale: 0.98; } }
+@keyframes mds-from-right { from { transform: translateX(100%); } }
+@keyframes mds-to-right { to { transform: translateX(100%); } }
+@keyframes mds-from-left { from { transform: translateX(-100%); } }
+@keyframes mds-to-left { to { transform: translateX(-100%); } }
+@keyframes mds-from-bottom { from { transform: translateY(100%); } }
+@keyframes mds-to-bottom { to { transform: translateY(100%); } }
+
+@layer components {
+  .mds-pop {
+    transform-origin: var(--radix-popper-transform-origin, var(--radix-tooltip-content-transform-origin, center));
+  }
+  .mds-pop[data-state='open'],
+  .mds-pop[data-state='delayed-open'],
+  .mds-pop[data-state='instant-open'] {
+    animation: mds-pop-in var(--mds-motion-duration-fast) var(--mds-motion-easing-decelerate);
+  }
+  .mds-pop[data-state='closed'] {
+    animation: mds-pop-out var(--mds-motion-duration-fast) var(--mds-motion-easing-accelerate);
+  }
+
+  .mds-fade[data-state='open'] {
+    animation: mds-fade-in var(--mds-motion-duration-normal) var(--mds-motion-easing-standard);
+  }
+  .mds-fade[data-state='closed'] {
+    animation: mds-fade-out var(--mds-motion-duration-normal) var(--mds-motion-easing-standard);
+  }
+
+  .mds-dialog[data-state='open'] {
+    animation: mds-dialog-in var(--mds-motion-duration-normal) var(--mds-motion-easing-decelerate);
+  }
+  .mds-dialog[data-state='closed'] {
+    animation: mds-dialog-out var(--mds-motion-duration-fast) var(--mds-motion-easing-accelerate);
+  }
+
+  .mds-drawer-right[data-state='open'] {
+    animation: mds-from-right var(--mds-motion-duration-slow) var(--mds-motion-easing-decelerate);
+  }
+  .mds-drawer-right[data-state='closed'] {
+    animation: mds-to-right var(--mds-motion-duration-normal) var(--mds-motion-easing-accelerate);
+  }
+  .mds-drawer-left[data-state='open'] {
+    animation: mds-from-left var(--mds-motion-duration-slow) var(--mds-motion-easing-decelerate);
+  }
+  .mds-drawer-left[data-state='closed'] {
+    animation: mds-to-left var(--mds-motion-duration-normal) var(--mds-motion-easing-accelerate);
+  }
+
+  .mds-sheet[data-state='open'] {
+    animation: mds-from-bottom var(--mds-motion-duration-slow) var(--mds-motion-easing-decelerate);
+  }
+  .mds-sheet[data-state='closed'] {
+    animation: mds-to-bottom var(--mds-motion-duration-normal) var(--mds-motion-easing-accelerate);
+  }
+}

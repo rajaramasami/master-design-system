@@ -14,4 +14,5 @@
 @import '@rajaramasami/mds-tokens/tailwind';
 @import './variants.css';
 @import './base.css';
+@import './motion.css';
 @source './';

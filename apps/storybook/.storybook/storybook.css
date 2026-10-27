@@ -2,6 +2,7 @@
 @import '@rajaramasami/mds-tokens/tailwind';
 @import '../../../packages/react/src/variants.css';
 @import '../../../packages/react/src/base.css';
+@import '../../../packages/react/src/motion.css';
 @source '../../../packages/react/src';
 @source '../stories';
 /* Classes the foundations pages build from names at runtime. */

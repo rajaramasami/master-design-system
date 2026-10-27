@@ -26,3 +26,25 @@ export { RadioGroup, Radio } from './components/Radio/Radio';
 export type { RadioGroupProps, RadioProps } from './components/Radio/Radio';
 export { Switch } from './components/Switch/Switch';
 export type { SwitchProps } from './components/Switch/Switch';
+
+// Phase 3: Overlays
+export { Scrim } from './components/Overlay/shared';
+export type { ScrimProps } from './components/Overlay/shared';
+export { Tooltip } from './components/Tooltip/Tooltip';
+export type { TooltipProps } from './components/Tooltip/Tooltip';
+export { Popover, PopoverTrigger, PopoverContent, PopoverClose } from './components/Popover/Popover';
+export type { PopoverContentProps } from './components/Popover/Popover';
+export {
+  Menu, MenuTrigger, MenuContent, MenuItem, MenuRadioGroup, MenuRadioItem, MenuCheckboxItem,
+  MenuLabel, MenuSeparator, MenuGroup, MenuSub, MenuSubTrigger, MenuSubContent,
+} from './components/Menu/Menu';
+export type { MenuContentProps, MenuItemProps, MenuRadioItemProps, MenuCheckboxItemProps } from './components/Menu/Menu';
+export { Select, SelectItem, SelectGroup, SelectLabel, SelectSeparator } from './components/Select/Select';
+export type { SelectProps, SelectItemProps } from './components/Select/Select';
+export {
+  Dialog, DialogTrigger, DialogContent, DialogClose,
+  Drawer, DrawerTrigger, DrawerContent, DrawerClose,
+  BottomSheet, BottomSheetTrigger, BottomSheetContent, BottomSheetClose,
+} from './components/Dialog/Dialog';
+export type { DialogContentProps, DrawerContentProps, BottomSheetContentProps } from './components/Dialog/Dialog';
+export { usePortalContainer } from './provider/ThemeProvider';

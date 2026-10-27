@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo, type HTMLAttributes, type ReactNode } from 'react';
+import { createContext, useContext, useMemo, useState, type HTMLAttributes, type ReactNode } from 'react';
 import { cn } from '../lib/cn';
 
 export type Theme = 'light' | 'dark' | 'system';
@@ -23,6 +23,14 @@ const MdsContext = createContext<MdsSettings>({
 
 /** The current theme, platform, density, brand and icon family. */
 export const useMds = () => useContext(MdsContext);
+
+const PortalContext = createContext<HTMLElement | null>(null);
+
+/**
+ * Where overlays (Dialog, Menu, Tooltip…) render. They portal into the nearest
+ * ThemeProvider instead of <body>, so they keep its theme, brand, platform and density.
+ */
+export const usePortalContainer = () => useContext(PortalContext) ?? undefined;
 
 export interface ThemeProviderProps extends HTMLAttributes<HTMLDivElement> {
   /** Light, dark, or follow the system setting. Matches the Figma Color collection. */
@@ -55,6 +63,7 @@ export function ThemeProvider({
   children,
   ...rest
 }: ThemeProviderProps) {
+  const [root, setRoot] = useState<HTMLDivElement | null>(null);
   const family: IconFamily = iconFamily ?? (platform === 'web' ? 'lucide' : 'phosphor');
   const value = useMemo(
     () => ({ theme, platform, density, brand, iconFamily: family }),
@@ -62,8 +71,10 @@ export function ThemeProvider({
   );
   return (
     <MdsContext.Provider value={value}>
+      <PortalContext.Provider value={root}>
       <div
         {...rest}
+        ref={setRoot}
         className={cn('mds-root', className)}
         data-theme={theme === 'system' ? undefined : theme}
         data-platform={platform}
@@ -72,6 +83,7 @@ export function ThemeProvider({
       >
         {children}
       </div>
+      </PortalContext.Provider>
     </MdsContext.Provider>
   );
 }
